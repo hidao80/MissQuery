@@ -1,6 +1,6 @@
 let notes = [];
 let currentPage = 1;
-const notesPerPage = 10;
+const notesPerPage = 12;
 
 $(document).ready(function() {
     $('#submitFile').on('click', function() {
