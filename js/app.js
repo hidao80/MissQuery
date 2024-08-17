@@ -3,12 +3,12 @@ let currentPage = 1;
 const notesPerPage = 10;
 
 $(document).ready(function() {
-    $('#submitUrl').on('click', function() {
-        const url = $('#urlInput').val();
-        if (validateUrl(url)) {
-            fetchNotes(url);
+    $('#submitFile').on('click', function() {
+        const file = $('#fileInput')[0].files[0];
+        if (file) {
+            readFile(file);
         } else {
-            alert('無効なURLです。httpでアクセス可能なJSONファイルのURLを入力してください。');
+            alert('ファイルを選択してください。');
         }
     });
 
@@ -18,28 +18,23 @@ $(document).ready(function() {
     });
 });
 
-function validateUrl(url) {
-    return url.startsWith('http') && url.endsWith('.json');
-}
-
-function fetchNotes(url) {
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('ネットワークエラーが発生しました');
-            }
-            return response.json();
-        })
-        .then(data => {
-            notes = data;
-            $('#urlDialog').hide();
+function readFile(file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            notes = JSON.parse(e.target.result);
+            $('#fileDialog').hide();
             $('#searchBox').show();
             filterAndDisplayNotes();
-        })
-        .catch(error => {
-            alert('ノートの取得に失敗しました。URLを確認してください。');
+        } catch (error) {
+            alert('ファイルの解析に失敗しました。有効なJSONファイルを選択してください。');
             console.error('エラー:', error);
-        });
+        }
+    };
+    reader.onerror = function() {
+        alert('ファイルの読み込みに失敗しました。');
+    };
+    reader.readAsText(file);
 }
 
 function filterAndDisplayNotes() {

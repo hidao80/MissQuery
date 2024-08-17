@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body class="container py-4">
-    <div id="urlDialog" class="card p-4 mx-auto" style="max-width: 500px;">
-        <h2 class="card-title mb-3">MisskeyノートのエクスポートファイルのURLを入力してください</h2>
-        <div class="input-group mb-3">
-            <input type="text" id="urlInput" class="form-control" placeholder="https://example.com/notes.json">
-            <button id="submitUrl" class="btn btn-primary">読み込み</button>
+    <div id="fileDialog" class="card p-4 mx-auto" style="max-width: 500px;">
+        <h2 class="card-title mb-3">Misskeyノートのエクスポートファイルを選択してください</h2>
+        <div class="mb-3">
+            <input type="file" id="fileInput" class="form-control" accept=".json">
         </div>
+        <button id="submitFile" class="btn btn-primary">読み込み</button>
     </div>
 
     <input type="text" id="searchBox" class="form-control mb-4" placeholder="キーワードまたは正規表現を入力" style="display: none;">
