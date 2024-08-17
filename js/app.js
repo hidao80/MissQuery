@@ -54,16 +54,16 @@ function filterAndDisplayNotes() {
         const positiveTerms = terms.filter(term => !term.startsWith('-'));
         const negativeTerms = terms.filter(term => term.startsWith('-')).map(term => term.slice(1));
 
-        filteredNotes = notes.filter(note => {
-            const content = note.text.toLowerCase();
-            return positiveTerms.every(term => content.includes(term.toLowerCase())) &&
-                   negativeTerms.every(term => !content.includes(term.toLowerCase()));
+        filteredNotes = notes?.filter(note => {
+            const content = note?.text?.toLowerCase();
+            return positiveTerms.every(term => content?.includes(term?.toLowerCase())) &&
+                   negativeTerms.every(term => !content?.includes(term?.toLowerCase()));
         });
 
         // 正規表現での検索
         if (searchTerm.startsWith('/') && searchTerm.endsWith('/')) {
             const regex = new RegExp(searchTerm.slice(1, -1), 'i');
-            filteredNotes = filteredNotes.filter(note => regex.test(note.text));
+            filteredNotes = filteredNotes?.filter(note => regex.test(note?.text));
         }
     }
 
