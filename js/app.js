@@ -120,6 +120,11 @@ function displayPagination(totalNotes) {
     const totalPages = Math.ceil(totalNotes / notesPerPage);
     $('#pagination').empty();
 
+    if (totalPages === 0) {
+        $('#pagination').append('<span></span>');
+        return;
+    }
+
     if (currentPage > 1) {
         $('#pagination').append('<button onclick="changePage(' + (currentPage - 1) + ')">前へ</button>');
     }
