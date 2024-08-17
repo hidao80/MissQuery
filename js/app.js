@@ -33,7 +33,7 @@ function readFile(file) {
             }
             notes = parsedData;
             $('#fileDialog').hide();
-            $('#searchBox').show();
+            $('#searchContainer').show();
         } catch (error) {
             alert('ファイルの解析に失敗しました。有効なMisskeyノートのエクスポートJSONファイルを選択してください。');
             console.error('エラー:', error);
