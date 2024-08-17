@@ -16,11 +16,6 @@ $(document).ready(function() {
         currentPage = 1;
         filterAndDisplayNotes();
     });
-
-    $('#searchButton').on('click', function() {
-        currentPage = 1;
-        filterAndDisplayNotes();
-    }); 
 });
 
 function readFile(file) {
