@@ -29,7 +29,6 @@ function readFile(file) {
             notes = parsedData;
             $('#fileDialog').hide();
             $('#searchBox').show();
-            filterAndDisplayNotes();
         } catch (error) {
             alert('ファイルの解析に失敗しました。有効なMisskeyノートのエクスポートJSONファイルを選択してください。');
             console.error('エラー:', error);
@@ -63,8 +62,10 @@ function filterAndDisplayNotes() {
         }
     }
 
-    displayNotes(filteredNotes);
-    displayPagination(filteredNotes.length);
+    if (filteredNotes.length > 0) {
+        displayNotes(filteredNotes);
+        displayPagination(filteredNotes.length);    
+    }
 }
 
 function displayNotes(filteredNotes) {
