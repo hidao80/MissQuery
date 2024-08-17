@@ -23,13 +23,10 @@ function readFile(file) {
     reader.onload = function(e) {
         try {
             const parsedData = JSON.parse(e.target.result);
-            if (Array.isArray(parsedData)) {
-                notes = parsedData;
-            } else if (parsedData.notes && Array.isArray(parsedData.notes)) {
-                notes = parsedData.notes;
-            } else {
+            if (!Array.isArray(parsedData)) {
                 throw new Error('ノートデータが見つかりません');
             }
+            notes = parsedData;
             $('#fileDialog').hide();
             $('#searchBox').show();
             filterAndDisplayNotes();
