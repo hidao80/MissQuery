@@ -23,14 +23,23 @@ function validateUrl(url) {
 }
 
 function fetchNotes(url) {
-    $.getJSON(url, function(data) {
-        notes = data;
-        $('#urlDialog').hide();
-        $('#searchBox').show();
-        filterAndDisplayNotes();
-    }).fail(function() {
-        alert('ノートの取得に失敗しました。URLを確認してください。');
-    });
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('ネットワークエラーが発生しました');
+            }
+            return response.json();
+        })
+        .then(data => {
+            notes = data;
+            $('#urlDialog').hide();
+            $('#searchBox').show();
+            filterAndDisplayNotes();
+        })
+        .catch(error => {
+            alert('ノートの取得に失敗しました。URLを確認してください。');
+            console.error('エラー:', error);
+        });
 }
 
 function filterAndDisplayNotes() {
