@@ -16,6 +16,11 @@ $(document).ready(function() {
         currentPage = 1;
         filterAndDisplayNotes();
     });
+
+    $('#searchButton').on('click', function() {
+        currentPage = 1;
+        filterAndDisplayNotes();
+    }); 
 });
 
 function readFile(file) {
@@ -62,10 +67,8 @@ function filterAndDisplayNotes() {
         }
     }
 
-    if (filteredNotes.length > 0) {
-        displayNotes(filteredNotes);
-        displayPagination(filteredNotes.length);    
-    }
+    displayNotes(filteredNotes);
+    displayPagination(filteredNotes.length);    
 }
 
 function displayNotes(filteredNotes) {
@@ -74,6 +77,11 @@ function displayNotes(filteredNotes) {
     const notesToDisplay = filteredNotes.slice(startIndex, endIndex);
 
     $('#noteContainer').empty();
+
+    if (notesToDisplay.length === 0) {
+        $('#noteContainer').append('<div class="no-notes">ノートが見つかりませんでした。</div>');
+        return;
+    }
 
     notesToDisplay.forEach(note => {
         const noteElement = $('<div class="note-card"></div>');
