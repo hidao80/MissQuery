@@ -22,12 +22,19 @@ function readFile(file) {
     const reader = new FileReader();
     reader.onload = function(e) {
         try {
-            notes = JSON.parse(e.target.result);
+            const parsedData = JSON.parse(e.target.result);
+            if (Array.isArray(parsedData)) {
+                notes = parsedData;
+            } else if (parsedData.notes && Array.isArray(parsedData.notes)) {
+                notes = parsedData.notes;
+            } else {
+                throw new Error('ノートデータが見つかりません');
+            }
             $('#fileDialog').hide();
             $('#searchBox').show();
             filterAndDisplayNotes();
         } catch (error) {
-            alert('ファイルの解析に失敗しました。有効なJSONファイルを選択してください。');
+            alert('ファイルの解析に失敗しました。有効なMisskeyノートのエクスポートJSONファイルを選択してください。');
             console.error('エラー:', error);
         }
     };
