@@ -86,10 +86,10 @@ function displayNotes(filteredNotes) {
     notesToDisplay.forEach(note => {
         const noteElement = $('<div class="note-card"></div>');
         noteElement.html(`
-            <div class="note-content">${renderContent(note.text)}</div>
+            <div class="note-content">${renderContent(note?.text ?? '')}</div>
             <div class="note-footer">
-                <span>${new Date(note?.createdAt).toLocaleString()}</span>
-                <span>リノート: ${note?.renoteCount} / リアクション: ${Object.values(note?.reactions).reduce((a, b) => a + b, 0)}</span>
+                <span>${new Date(note?.createdAt ?? '').toLocaleString()}</span>
+                <span>リノート: ${note?.renoteCount ?? 0} / リアクション: ${Object.values(note?.reactions ?? []).reduce((a, b) => a + b, 0)}</span>
             </div>
         `);
         $('#noteContainer').append(noteElement);
