@@ -1,19 +1,18 @@
 :root {
     color-scheme: light dark;
-    --light-color: #333;
-    --light-bgcolor: #eee;
-    --dark-color: #eee;
-    --dark-bgcolor: #333;
+    --light-color: #212529;
+    --light-bgcolor: #f6f6f6;
+    --dark-color: #f6f6f6;
+    --dark-bgcolor: #212529;
     --light-note-footer-color: #888;
     --dark-note-footer-color: #777;
 }
 body {
-    color: light-dark(#333 #eee);
-    background-color: light-dark(#eee #333);
+    color: light-dark(#212529 #f6f6f6);
+    background-color: light-dark(#f6f6f6 #212529);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f6f6f6;
 }
 #urlDialog {
     position: fixed;
