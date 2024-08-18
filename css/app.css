@@ -54,6 +54,7 @@ input[type="file"].form-control, input[type="file"].form-control::placeholder {
 }
 .note-content {
     margin-bottom: 10px;
+    overflow-wrap: break-word;
 }
 .note-footer {
     display: flex;
