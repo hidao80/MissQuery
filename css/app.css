@@ -17,6 +17,9 @@ body {
 input[type="text|], input[type="text|]::placeholder {
     color: light-dark(var(--light-color) var(--dark-color)) !important;
     background-color: light-dark(var(--dark-color) var(--light-color)) !important;
+    min-width: 600px;
+    width: 33dvw;
+    margin-bottom: 2em;
 }
 #fileDialog {
     color: light-dark(var(--light-color) var(--dark-color)) !important;
