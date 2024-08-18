@@ -18,7 +18,7 @@ input[type="text|], input[type="text|]::placeholder {
     color: light-dark(var(--light-color) var(--dark-color)) !important;
     background-color: light-dark(var(--dark-color) var(--light-color)) !important;
 }
-#urlDialog {
+#fileDialog {
     color: light-dark(var(--light-color) var(--dark-color)) !important;
     background-color: light-dark(var(--dark-color) var(--light-color)) !important;
     position: fixed;
