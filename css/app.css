@@ -14,7 +14,7 @@ body {
     margin: 0;
     padding: 20px;
 }
-input[type="text|], input[type="text|]::placeholder {
+input[type="text"], input[type="text"]::placeholder {
     color: light-dark(var(--light-color) var(--dark-color)) !important;
     background-color: light-dark(var(--dark-color) var(--light-color)) !important;
     min-width: 600px;
@@ -42,7 +42,7 @@ input[type="text|], input[type="text|]::placeholder {
     border-radius: 10px;
     padding: 15px;
     width: 300px;
-    box-shadow: 0 1px 3px light-dark(#0001 #fff1) !important;
+    box-shadow: 0 1px 3px light-dark(#000 #fff);
 }
 .note-content {
     margin-bottom: 10px;
