@@ -14,13 +14,13 @@ body.container {
     font-family: Arial, sans-serif;
     margin: 0 auto;
     padding: 20px;
+    width: 100dvw;
 }
 input[type="text"].form-control, input[type="text"].form-control::placeholder {
     color: light-dark(var(--light-color) var(--dark-color));
     background-color: light-dark(var(--dark-color) var(--light-color));
     max-width: 800px;
     min-width: 200px;
-    marign: 2em auto;
 }
 input[type="file"].form-control, input[type="file"].form-control::placeholder {
     color: light-dark(var(--light-color) var(--dark-color));
@@ -42,9 +42,6 @@ input[type="file"].form-control, input[type="file"].form-control::placeholder {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-}
-.searchContainer {
-    width: 100dvw;
 }
 .note-card {
     border-radius: 10px;
