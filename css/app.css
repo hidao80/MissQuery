@@ -6,7 +6,6 @@
     --dark-bgcolor: #212529;
     --light-note-footer-color: #888;
     --dark-note-footer-color: #555;
-    --box-shadow: light-dark(rgba(0,0,0,.1) rgba(255,2555,255,.1));
 }
 body.container {
     color: light-dark(var(--light-color) var(--dark-color));
@@ -35,7 +34,7 @@ input[type="file"].form-control, input[type="file"].form-control::placeholder {
     transform: translate(-50%, -50%);
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 10px 0 var(--box-shadow);
+    box-shadow: 0 2px 10px 0 #555;
 }
 #noteContainer {
     display: flex;
@@ -47,7 +46,7 @@ input[type="file"].form-control, input[type="file"].form-control::placeholder {
     border-radius: 10px;
     padding: 15px;
     width: 300px;
-    box-shadow: 0 1px 3px 0 var(--box-shadow);
+    box-shadow: 0 1px 3px 0 #555;
 }
 .note-content {
     margin-bottom: 10px;
